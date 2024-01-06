@@ -23,7 +23,7 @@ var guardaryeditar = (e) => {
    
     var ID_tienda = document.getElementById("ID_tienda").value;
     if(ID_tienda > 0){
-      var tienda = new TiendasRopa_Model('','','','',formData,'editar');
+      var tienda = new TiendasRopa_Model('','','',formData,'editar');
       tienda.editar();
     }else{
       var tienda = new TiendasRopa_Model('','','','',formData,'insertar');

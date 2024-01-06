@@ -72,12 +72,12 @@ class Clase_Tienda
             $con->close();
         }
     }
-    public function tienda_repetida($ID_tienda)
+    public function tienda_repetida($Nombre)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "SELECT count(*) as tienda_repetida FROM `tiendasropa` WHERE `ID_tienda`= '$ID_tienda'";
+            $cadena = "SELECT count(*) as tienda_repetida FROM `tiendasropa` WHERE `Nombre`= '$Nombre'";
             $result = mysqli_query($con, $cadena);
             return $result;
         } catch (Throwable $th) {

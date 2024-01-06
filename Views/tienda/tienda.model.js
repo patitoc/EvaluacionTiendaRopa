@@ -27,6 +27,10 @@ class TiendasRopa_Model {
                 <td>${valor.Nombre}</td>
                 <td>${valor.Ciudad}</td>
                 <td>${valor.Categoria}</td>
+                <td><div class="d-flex align-items-center gap-2">
+                <span class="badge ${fondo} rounded-3 fw-semibold">${
+                  valor.Categoria
+                }</span>
             </div></td>
             <td>
             <button class='btn btn-success' onclick='editar(${

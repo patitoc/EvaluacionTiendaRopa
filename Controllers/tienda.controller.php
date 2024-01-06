@@ -10,8 +10,7 @@ switch ($_GET["op"]) {
         }
         echo json_encode($todos); //devuelvo el arreglo en formato json
         break;
-    
-        
+           
     case "uno":
         $ID_tienda = $_POST["ID_tienda"]; //defino una variable para almacenar el id del usuario, la variable se obtiene mediante POST
         $datos = array(); //defino un arreglo
@@ -21,13 +20,15 @@ switch ($_GET["op"]) {
         break;
 
     case 'insertar':
-        $ID_tienda = $_POST["ID_tienda"];
+        //$ID_tienda = $_POST["ID_tienda"];
         $Nombre = $_POST["Nombre"];
         $Ciudad = $_POST["Ciudad"];
         $Categoria = $_POST["Categoria"];
         
         $datos = array(); //defino un arreglo
-        $datos = $tienda->insertar($ID_tienda, $Nombre, $Ciudad, $Categoria); //llamo al modelo de tienda e invoco al procedimiento insertar
+        //$datos = $tienda->insertar($ID_tienda, $Nombre, $Ciudad, $Categoria);
+        //var_dump($datos);
+        $datos = $tienda->insertar($Nombre, $Ciudad, $Categoria); //llamo al modelo de tienda e invoco al procedimiento insertar
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
     case 'actualizar':
@@ -40,10 +41,11 @@ switch ($_GET["op"]) {
         $datos = $tienda->actualizar($ID_tienda, $Nombre, $Ciudad, $Categoria); //llamo al modelo de tienda e invoco al procedimiento actual
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
+
     case 'eliminar':
         $ID_tienda = $_POST["ID_tienda"]; //defino una variable para almacenar el id del usuario, la variable se obtiene mediante POST
         $datos = array(); //defino un arreglo
-        $datos = $productos->eliminar($productoId); //llamo al modelo de tienda e invoco al procedimiento uno y almaceno en una variable
+        $datos = $tienda->eliminar($ID_tienda); //llamo al modelo de tienda e invoco al procedimiento uno y almaceno en una variable
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
     case "tienda_repetida":

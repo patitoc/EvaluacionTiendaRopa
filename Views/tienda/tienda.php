@@ -47,7 +47,7 @@
 <div class="modal fade" id="ModalTiendasRopa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" id="form_TiendasRopa">
+            <form method="post" id="form_tiendasropa">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Tiendas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -57,21 +57,26 @@
 
                         <div class="form-group mt-3">
                         <label for="ID_tienda">ID_tienda</label>
-                        <input type="text" onfocusout="tabla_repetida();" required class="form-control" id="codigo" name="codigo" placeholder="CODIGO">
+                        
+                        <input type="text" required class="form_tiendasropa" id="ID_tienda" name="ID_tienda" placeholder="ID_tienda">
                         <div class="alert alert-danger d-none" role="alert" id="codigoRepetido">
                         </div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="nombre">Nombre</label>
-                        <input type="text" required class="form-control" id="Nombre" name="Nombre" placeholder="DeModa">
+                        <input type="text" required class="form_tiendasropa" id="Nombre" name="Nombre" placeholder="Nombre de Tienda">
                     </div>
                     <div class="form-group mt-3">
                         <label for="ciudad">Ciudad de la Tienda</label>
-                        <input type="text" required class="form-control" id="ciudad" name="ciudad" placeholder="Ibarra">
+                        <input type="text" required class="form_tiendasropa" id="ciudad" name="ciudad" placeholder="Ciudad ">
                     </div>
                     <div class="form-group mt-3">
-                        <label for="categoria">Categoria</label>
-                        <input type="text" required class="form-control" id="categoria" name="categoria" placeholder="Mujer">
+                        <label for="Categoria">Categoría</label>
+                        <select name="Categoria" id="Categoria" class="form_tiendasropa">
+                            <option value="Mujeres">Mujeres</option>
+                            <option value="Hombres">Hombres</option>
+                            <option value="Niños">Niños</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
