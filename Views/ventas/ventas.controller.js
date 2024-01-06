@@ -10,18 +10,19 @@ function init() {
 $().ready(() => {
   //detecta carga de la pagina
   todos_controlador();
-  clientes();
-  venta();
+ clientes();
+ venta();
 });
 
 var todos_controlador = () => {
   var todos = new Ventas_Model("", "", "", "", "", "", "", "", "todos");
+  console.log(todos);
   todos.todos();
 }
 
 var venta = () => {
   var productos = new Ventas_Model("", "", "", "", "", "", "", "", "venta");
-  productos.productos();
+  //productos.productos();
 }
 
 var clientes = () => {
@@ -32,19 +33,19 @@ var clientes = () => {
 var guardaryeditar = (e) => {
     e.preventDefault();
     var formData = new FormData($("#form_ventaropa")[0]);
-   
     var ID_venta = document.getElementById("ID_venta").value;
+    console.log('ID_venta', ID_venta)
     if(ID_venta > 0){
-      var ventas = new Ventas_Model('','','','','','',formData,'editar');
+      var ventas = new Ventas_Model('','','','','','','',formData,'editar');
       ventas.editar();
     }else{
-      var ventas = new Ventas_Model('','','','','','',formData,'insertar');
-      venta.insertar();  
+      var ventas = new Ventas_Model('','','','','','','',formData,'insertar');
+      ventas.insertar();  
     }
 };
 
 var eliminar=(ID_venta)=>{
-    var eliminar = new Ventas_Model(ID_venta, "", "", "", "", "", "", "eliminar");
+    var eliminar = new Ventas_Model(ID_venta, "", "", "", "", "", "","","eliminar");
     eliminar.eliminar();
 }
 
@@ -54,4 +55,10 @@ var editar = (ID_cliente) => {
     uno.uno();
 };
 
+function calcular(){
+  var cantidad=document.getElementById("cantidad").value;
+  var precio = document.getElementById("precio").value;
+  document.getElementById("total").value=parseFloat(cantidad)*parseFloat(precio);
+
+}
 ;init();

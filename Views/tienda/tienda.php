@@ -52,27 +52,20 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Tiendas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <input type="hidden" name="ID_tienda" id="ID_tienda">
+                <input type="hidden" name="IDtienda" id="IDtienda">
                 <div class="modal-body">
 
-                        <div class="form-group mt-3">
-                        <label for="ID_tienda">ID_tienda</label>
-                        
-                        <input type="text" required class="form_tiendasropa" id="ID_tienda" name="ID_tienda" placeholder="ID_tienda">
-                        <div class="alert alert-danger d-none" role="alert" id="codigoRepetido">
-                        </div>
-                    </div>
                     <div class="form-group mt-3">
                         <label for="nombre">Nombre</label>
-                        <input type="text" required class="form_tiendasropa" id="Nombre" name="Nombre" placeholder="Nombre de Tienda">
+                        <input type="text" required class="form-control" id="Nombre" name="Nombre" placeholder="Nombre de Tienda">
                     </div>
                     <div class="form-group mt-3">
-                        <label for="ciudad">Ciudad de la Tienda</label>
-                        <input type="text" required class="form_tiendasropa" id="ciudad" name="ciudad" placeholder="Ciudad ">
+                        <label for="Ciudad">Ciudad de la Tienda</label>
+                        <input type="text" required class="form-control" id="Ciudad" name="Ciudad" placeholder="Ciudad ">
                     </div>
                     <div class="form-group mt-3">
                         <label for="Categoria">Categoría</label>
-                        <select name="Categoria" id="Categoria" class="form_tiendasropa">
+                        <select name="Categoria" id="Categoria" class="form-control">
                             <option value="Mujeres">Mujeres</option>
                             <option value="Hombres">Hombres</option>
                             <option value="Niños">Niños</option>

@@ -59,6 +59,7 @@ class Usuarios_Model {
   }
 
   insertar() {
+    console.log('usuario i',this)
     var dato = new FormData();
     dato = this.Contrasenia;
    $.ajax({

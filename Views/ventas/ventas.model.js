@@ -88,14 +88,15 @@ class Ventas_Model {
   insertar() {
 
     var dato = new FormData();
-    dato = this.ID_venta;
-   $.ajax({
+    dato = this.Fecha_venta;
+    $.ajax({
     url: "../../Controllers/venta.controller.php?op=insertar",
     type: "POST",
     data: dato,
     contentType: false,
     processData: false,
     success: function (res) {
+      console.log(res);
         res = JSON.parse(res);
         if(res === "ok"){
             Swal.fire("Venta", "Venta Registrada", "success");
@@ -116,14 +117,14 @@ class Ventas_Model {
       (res) => {
         res = JSON.parse(res);
 
-        $("#ID_venta").val(res.id);
+        $("#ID_venta").val(res.ID_venta);
         $("#ID_tienda").val(res.ID_tienda);
         $("#ID_cliente").val(res.ID_cliente);
         $("#Producto").val(res.Producto);
-        $("#Cantidad").val(res.Cantidad);
-        $("#Precio").val(res.Precio);
-        $("#Total").val(res.Total);
-        $("#Fecha_venta").val(re.Fecha_venta);
+        $("#cantidad").val(res.Cantidad);
+        $("#precio").val(res.Precio);
+        $("#total").val(res.Total);
+        $("#Fecha_venta").val(res.Fecha_venta);
       }
     );
     $("#ModalVentasRopa").modal("show");
@@ -131,7 +132,7 @@ class Ventas_Model {
 
   editar() {
     var dato = new FormData();
-    dato = this.ID_venta;
+    dato = this.Fecha_venta;
     console.log('ID_venta',this.ID_venta)
     console.log('ID_tienda',this.ID_tienda)
     console.log('ID_cliente',this.ID_cliente)
@@ -200,9 +201,9 @@ class Ventas_Model {
     document.getElementById("ID_tienda").value = "";  
     document.getElementById("ID_cliente").value = "";
     document.getElementById("Producto").value = "";
-    document.getElementById("Cantidad").value = "";
-    document.getElementById("Precio").value = "";
-    document.getElementById("Total").value = "";
+    document.getElementById("cantidad").value = "";
+    document.getElementById("precio").value = "";
+    document.getElementById("total").value = "";
     document.getElementById("Fecha_venta").value = "";
     $("#ModalVentasRopa").modal("hide");
   }

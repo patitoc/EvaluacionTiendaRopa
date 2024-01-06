@@ -63,8 +63,8 @@ CREATE TABLE `tiendasropa` (
 --
 
 INSERT INTO `tiendasropa` (`ID_tienda`, `Nombre`, `Ciudad`, `Categoria`) VALUES
-(1, 'DeModa', 'Ibarra', 'Mujer'),
-(2, 'DeModa', 'Ibarra', 'Hombre'),
+(1, 'DeModa', 'Ibarra', 'Mujeres'),
+(2, 'DeModa', 'Ibarra', 'Hombres'),
 (3, 'DeModa', 'Ibarra', 'Niños');
 
 -- --------------------------------------------------------
@@ -156,6 +156,19 @@ ALTER TABLE `ventasropa`
 --
 ALTER TABLE `usuarios`
   MODIFY `UsuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  
+--
+-- AUTO_INCREMENT de la tabla `tiendasropa`
+--
+ALTER TABLE `tiendasropa`
+  MODIFY `ID_tienda` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `ventasropa`
+--
+ALTER TABLE `ventasropa`
+  MODIFY `ID_venta` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 
 --
 -- Restricciones para tablas volcadas

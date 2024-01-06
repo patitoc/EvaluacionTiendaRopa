@@ -19,8 +19,8 @@ class TiendasRopa_Model {
       res = JSON.parse(res);
       $.each(res, (index, valor) => {
         var fondo;
-        if(valor.Categoria == "Mujer") fondo ="bg-primary"
-        else if(valor.Categoria == "Hombre" ) fondo = "bg-danger"
+        if(valor.Categoria == "Mujeres") fondo ="bg-primary"
+        else if(valor.Categoria == "Hombres" ) fondo = "bg-danger"
         else if(valor.Categoria == "Niños") fondo = "bg-success"
         html += `<tr>
                 <td>${index + 1}</td>
@@ -51,7 +51,7 @@ class TiendasRopa_Model {
 
   insertar() {
     var dato = new FormData();
-    dato = this.ID_tienda;
+    dato = this.Categoria;
    $.ajax({
     url: "../../Controllers/tienda.controller.php?op=insertar",
     type: "POST",
@@ -78,8 +78,8 @@ class TiendasRopa_Model {
       { ID_tienda: ID_tienda },
       (res) => {
         res = JSON.parse(res);
-        $("#ID_tienda").val(res.ID_tienda);
-        $("#Nombre").val(res.Nombreombre);
+        $("#IDtienda").val(res.ID_tienda);
+        $("#Nombre").val(res.Nombre);
         $("#Ciudad").val(res.Ciudad);
         $("#Categoria").val(res.Categoria);
       }
@@ -124,11 +124,11 @@ class TiendasRopa_Model {
 
   editar() {
     var dato = new FormData();
-    dato = this.ID_tienda;
+    dato = this.Categoria;
     console.log('ID_tienda',this.ID_tienda)
     console.log('Nombre',this.Nombre)
     console.log('Ciudad',this.Ciudad)
-    console.log('Categoria',this.Categoria)
+    console.log('Categoria',dato)
 
     $.ajax({
       url: "../../Controllers/tienda.controller.php?op=actualizar",
@@ -167,7 +167,7 @@ class TiendasRopa_Model {
   }
 
   limpia_Cajas(){
-    document.getElementById("ID_tienda").value = "";
+    document.getElementById("IDtienda").value = "";
     document.getElementById("Nombre").value = "";  
     document.getElementById("Ciudad").value = "";
     document.getElementById("Categoria").value = "";

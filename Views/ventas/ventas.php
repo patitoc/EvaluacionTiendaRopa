@@ -5,11 +5,11 @@
     <div class="col-lg-12 d-flex align-items-stretch">
         <div class="card w-100">
             <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">LISTA DE VENTAS</h5>
+                <h5 class="card-title fw-semibold mb-4">Lista de ventas</h5>
 
                 <div class="table-responsive">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalVentasRopa">
-                        NUEVA VENTA
+                        Nueva Venta
                     </button>
                     <table class="table text-nowrap mb-0 align-middle">
                         <thead class="text-dark fs-4">
@@ -66,11 +66,7 @@
                 </div>
                 <input type="hidden" name="ID_venta" id="ID_venta">
                 <div class="modal-body">                
-                    <div class="form-group mt-3">
-                        <label for="codigo">Código Venta</label>
-                        <input type="number" required class="form-control" id="ID_venta" name="ID_venta" placeholder=" ">
-                    </div>
-                    <div class="form-group mt-3">
+                        <div class="form-group mt-3">
                         <label for="codigo">Código Tienda</label>
                         <input type="number" required class="form-control" id="ID_tienda" name="ID_tienda" placeholder=" ">
                     </div>
@@ -80,23 +76,23 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="Producto">Producto</label>
-                        <div id="Productos"></div>
+                        <input type="text" require class="form-control" id="Producto" name="Producto" placeholder= "">
                     </div>
                     <div class="form-group mt-3">
                         <label for="Cantidad">Cantidad</label>
-                        <input type="number" step="any" required class="form-control" id="cantidad" name="cantidad" placeholder="1">
+                        <input type="number" onblur="calcular()" step="any" required class="form-control" id="cantidad" name="cantidad" placeholder="1">
                         <div id="Cantidad"></div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="precio">Precio</label>
-                        <input type="float" step="any" required class="form-control" id="precio" name="precio" placeholder=" ">
+                        <input type="float" onblur="calcular()" step="any" required class="form-control" id="precio" name="precio" placeholder=" ">
                     </div>
                     <div class="form-group mt-3">
                         <label for="total">Total</label>
                         <input type="float" step="any" required class="form-control" id="total" name="total" placeholder=" ">
                     </div>
                     <div class="form-group mt-3">
-                        <label for="codigo">Fecha venta</label>
+                        <label for="Fecha_venta">Fecha venta</label>
                         <input type="date" required class="form-control" id="Fecha_venta" name="Fecha_venta" placeholder=" ">
                     </div>
                 <div class="modal-footer">

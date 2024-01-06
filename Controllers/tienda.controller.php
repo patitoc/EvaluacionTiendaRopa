@@ -32,7 +32,7 @@ switch ($_GET["op"]) {
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
     case 'actualizar':
-        $ID_tienda = $_POST["ID_tienda"];
+        $ID_tienda = $_POST["IDtienda"];
         $Nombre = $_POST["Nombre"];
         $Ciudad = $_POST["Ciudad"];
         $Categoria = $_POST["Categoria"];

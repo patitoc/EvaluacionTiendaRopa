@@ -63,9 +63,9 @@ class Clase_Ventas
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "INSERT INTO `ventasropa` (`ID_tienda`, `ID_cliente`, `Producto`, Cantidad, Precio, Total, `Fecha_venta`) VALUES ('$ID_tienda','$ID_cliente','$Producto','$Cantidad','$Precio','$Total','$Fecha_venta')";
+            $cadena = "INSERT INTO `ventasropa` (`ID_tienda`, `ID_cliente`, `Producto`, `Cantidad`, `Precio`, `Total`, `Fecha_venta`) VALUES ('$ID_tienda', '$ID_cliente', '$Producto','$Cantidad','$Precio','$Total','$Fecha_venta')";
             $result = mysqli_query($con, $cadena);
-            return 'ok';
+            return ('ok');
         } catch (Throwable $th) {
             return $th->getMessage();
         } finally {
@@ -77,9 +77,9 @@ class Clase_Ventas
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE `ventasropa` SET `ID_tienda`='$ID_tienda', `ID_cliente`='$ID_cliente', `Producto`='$Producto', `Cantidad`='$Cantidad', `Precio`='$Precio', `Total`='$Total', `Fecha_venta`='$Fecha_venta', WHERE `ID_venta`= $ID_venta";
+            $cadena = "UPDATE `ventasropa` SET `Producto`='$Producto', `Cantidad`='$Cantidad', `Precio`='$Precio', `Total`='$Total', `Fecha_venta`='$Fecha_venta' WHERE `ID_venta`= $ID_venta";
             $result = mysqli_query($con, $cadena);
-            return "ok";
+            return ('ok');
         } catch (Throwable $th) {
             return $th->getMessage();
         } finally {
@@ -91,7 +91,7 @@ class Clase_Ventas
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "delete from ventasropa where ID_venta=$ID_venta";
+            $cadena = "delete from `ventasropa` where ID_venta=$ID_venta";
             $result = mysqli_query($con, $cadena);
             return "ok";
         } catch (Throwable $th) {
@@ -100,12 +100,12 @@ class Clase_Ventas
             $con->close();
         }
     }
-    public function venta_repetida($ID_venta)
+    public function venta_repetida($Producto, $ID_venta)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "SELECT count(*) as venta_repetida FROM `ventasropa` WHERE `ID_venta`= '$ID_venta'";
+            $cadena = "SELECT count(*) as venta_repetida FROM `ventasropa` WHERE `Producto`= '$Producto' AND `ID_venta`= '$ID_venta'";
             $result = mysqli_query($con, $cadena);
             return $result;
         } catch (Throwable $th) {

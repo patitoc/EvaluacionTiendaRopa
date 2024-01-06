@@ -37,17 +37,16 @@ switch ($_GET["op"]) {
         echo json_encode($uno); //devuelvo el arreglo en formato json
         break;
     case 'insertar':
-       
         $ID_tienda = $_POST["ID_tienda"];
         $ID_cliente = $_POST["ID_cliente"];
         $Producto = $_POST["Producto"];
-        $Cantidad = $_POST["Cantidad"];
-        $Precio = $_POST["Precio"];
-        $Total = $Cantidad[0] * $Precio[0];
+        $Cantidad = $_POST["cantidad"];
+        $Precio = $_POST["precio"];
+        $Total = $_POST["total"];
         $Fecha_venta = $_POST["Fecha_venta"];
         
         $datos = array(); //defino un arreglo
-        $datos = $ventaropa->insertar($ID_venta, $ID_tienda, $ID_cliente, $Producto, $Cantidad, $Precio, $Total, $Fecha_venta); //llamo al modelo de usuarios e invoco al procedimiento insertar
+        $datos = $ventaropa->insertar($ID_tienda, $ID_cliente, $Producto, $Cantidad, $Precio, $Total, $Fecha_venta); //llamo al modelo de usuarios e invoco al procedimiento insertar
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
     case 'actualizar':
@@ -55,17 +54,17 @@ switch ($_GET["op"]) {
         $ID_tienda = $_POST["ID_tienda"];
         $ID_cliente = $_POST["ID_cliente"];
         $Producto = $_POST["Producto"];
-        $Cantidad = $_POST["Cantidad"];
-        $Precio = $_POST["Precio"];
-        $Total = $Cantidad[0] * $Precio[0];
+        $Cantidad = $_POST["cantidad"];
+        $Precio = $_POST["precio"];
+        $Total = $_POST["total"];
         $Fecha_venta = $_POST["Fecha_venta"];
         
         $datos = array(); //defino un arreglo
-        $datos = $ventaropa->actualizar($ID_venta, $ID_tienda, $ID_cliente, $Producto[1], $Cantidad, $Precio, $Total, $Fecha_venta); //llamo al modelo de usuarios e invoco al procedimiento actual
+        $datos = $ventaropa->actualizar($ID_venta, $ID_tienda, $ID_cliente, $Producto, $Cantidad, $Precio, $Total, $Fecha_venta); //llamo al modelo de usuarios e invoco al procedimiento actual
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
     case 'eliminar':
-        $ID_venta = $_POST["ID_Venta"]; //defino una variable para almacenar el id del usuario, la variable se obtiene mediante POST
+        $ID_venta = $_POST["ID_venta"]; //defino una variable para almacenar el id del usuario, la variable se obtiene mediante POST
         $datos = array(); //defino un arreglo
         $datos = $ventaropa->eliminar($ID_venta); //llamo al modelo de usuarios e invoco al procedimiento uno y almaceno en una variable
         echo json_encode($datos); //devuelvo el arreglo en formato json

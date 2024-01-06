@@ -63,7 +63,7 @@ class Clase_Tienda
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "delete from tiendasropa where ID_tienda=$ID_tienda";
+            $cadena = "delete from `tiendasropa` where ID_tienda=$ID_tienda";
             $result = mysqli_query($con, $cadena);
             return "ok";
         } catch (Throwable $th) {
@@ -72,12 +72,12 @@ class Clase_Tienda
             $con->close();
         }
     }
-    public function tienda_repetida($Nombre)
+    public function tienda_repetida($Nombre, $ID_tienda)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "SELECT count(*) as tienda_repetida FROM `tiendasropa` WHERE `Nombre`= '$Nombre'";
+            $cadena = "SELECT count(*) as tienda_repetida FROM `tiendasropa` WHERE `Nombre`= '$Nombre' AND `ID_tienda`<>$ID_tienda";
             $result = mysqli_query($con, $cadena);
             return $result;
         } catch (Throwable $th) {

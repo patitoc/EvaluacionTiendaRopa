@@ -20,13 +20,15 @@ var todos_controlador = () => {
 var guardaryeditar = (e) => {
     e.preventDefault();
     var formData = new FormData($("#form_tiendasropa")[0]);
-   
-    var ID_tienda = document.getElementById("ID_tienda").value;
+    var ID_tienda = document.getElementById("IDtienda").value;
+
+    console.log('ID_tiendas ', ID_tienda)
+    //var ID_tienda = $('#ID_tienda').val();
     if(ID_tienda > 0){
       var tienda = new TiendasRopa_Model('','','',formData,'editar');
       tienda.editar();
     }else{
-      var tienda = new TiendasRopa_Model('','','','',formData,'insertar');
+      var tienda = new TiendasRopa_Model('','','',formData,'insertar');
       tienda.insertar();  
     }
 };
